@@ -27,7 +27,7 @@ if (!defined $cutoffs) {
   die "$cutoffs not defined!\n";
 }
 
-my @cutoffs = split "\t", $cutoffs;
+my @cutoffs = split ",", $cutoffs;
 
 
 my ($seqobj, $length,$count, $id);
@@ -48,10 +48,7 @@ while ($seqobj = $in ->next_seq()) {
     $out->write_seq($seqobj);
     next;
   }
-  $out->write_seq($seqobj);
-  next;
 }
-
 
 print "Total number of scaffolds sorted:" . "\t" . "$count" . "\n";
 
